@@ -5,6 +5,7 @@
  */
 package com.devimayang27.perpus.controller;
 
+import com.devimayang27.perpus.model.Buku;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,20 @@ public class BukuAddController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //super.doGet(req, resp); //To change body of generated methods, choose Tools | Templates.
         req.getRequestDispatcher("/pages/buku/tambahBuku.jsp").forward(req, resp);
+        System.out.println("get method");
     
     }
-    
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       // super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
+       Buku buku = new Buku();
+       buku.setJudulBuku(req.getParameter("judulBuku"));
+       buku.setTahunTerbit(Integer.valueOf(req.getParameter("tahunTerbit")));
+       buku.setPengarang(req.getParameter("pengarang"));
+       buku.setJumlahBuku(Integer.valueOf(req.getParameter("jumlahBuku")));
+       
+       System.out.println(buku.toString());
+    }
+      
 }

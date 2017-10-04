@@ -12,8 +12,8 @@
         <title>Tambah Buku</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <form action="${pageContext.servletContext.contextPath}/buku/proses/tambah" method="post">
+        <h1>FORM PENGISIAN DATA BUKU</h1>
+        <form action="${pageContext.servletContext.contextPath}/buku/new" method="post">
             <div>
                 <label for="judulBuku">Judul Buku</label>
                 <input type="text" name="judulBuku" id="judulBuku">
