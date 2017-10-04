@@ -22,7 +22,5 @@ public class BukuDaoTest extends TestCase{
         bukuDao.save();
     }
     
-    public void testUpdateDataBuku() throws SQLException{
-        bukuDao.update();
-    }
+  
 }
