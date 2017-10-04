@@ -17,17 +17,17 @@ import javax.sql.DataSource;
  */
 public class BukuDao {
     
-    public void save() throws SQLException{
+    public void save(Buku x) throws SQLException{
         KoneksiDatabase koneksiDB = new KoneksiDatabase();
         DataSource dataSource = koneksiDB.getDataSource();
         Connection connection = dataSource.getConnection();
         
         String sql = "insert into perpus.buku( judul_buku, tahun_terbit, pengarang, jumlah_buku) values(?,?,?,?)";
         PreparedStatement statement= connection.prepareStatement(sql);
-        statement.setString(1, "Belajar Ngoding");
-        statement.setInt(2,2017);
-        statement.setString(3, "Asal ajaa");
-        statement.setInt(4, 4);
+        statement.setString(1, x.getJudulBuku());
+        statement.setInt(2,x.getTahunTerbit());
+        statement.setString(3, x.getPengarang());
+        statement.setInt(4, x.getJumlahBuku());
         
         statement.executeUpdate();
         statement.close();

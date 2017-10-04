@@ -5,8 +5,12 @@
  */
 package com.devimayang27.perpus.controller;
 
+import com.devimayang27.perpus.dao.BukuDao;
 import com.devimayang27.perpus.model.Buku;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.annotation.WebServlet;
@@ -36,6 +40,12 @@ public class BukuAddController extends HttpServlet {
        buku.setPengarang(req.getParameter("pengarang"));
        buku.setJumlahBuku(Integer.valueOf(req.getParameter("jumlahBuku")));
        
+       BukuDao bukuDao = new BukuDao();
+        try {
+            bukuDao.save(buku);
+        } catch (SQLException ex) {
+            Logger.getLogger(BukuAddController.class.getName()).log(Level.SEVERE, null, ex);
+        }
        System.out.println(buku.toString());
     }
       
