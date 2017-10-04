@@ -19,7 +19,5 @@ public class Transaksi {
     private Pengunjung pengunjung;
     private Date tanggalPinjam;
     private Date tanggalKembali;
-
-   
     
 }
