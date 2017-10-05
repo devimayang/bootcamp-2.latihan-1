@@ -34,13 +34,15 @@
                 <td>${sebuahBuku.tahunTerbit}</td>
                 <td>${sebuahBuku.jumlahBuku}</td>
                 <td>
+                    
                     <a href="${pageContext.servletContext.contextPath}/buku/delete?kodeBuku=${sebuahBuku.id}">Hapus</a>
+                    <a href="${pageContext.servletContext.contextPath}/buku/edit?kodeBuku=${sebuahBuku.id}">Edit</a>
                 </td>
                 </tr>
                 </c:forEach>
                 
             </tbody>
         </table>
-        
+    <a href="${pageContext.servletContext.contextPath}/buku/new">Tambah</a>    
     </body>
 </html>
