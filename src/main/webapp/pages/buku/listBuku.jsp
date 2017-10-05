@@ -33,7 +33,9 @@
                 <td>${sebuahBuku.pengarang}</td>
                 <td>${sebuahBuku.tahunTerbit}</td>
                 <td>${sebuahBuku.jumlahBuku}</td>
-                <td></td>
+                <td>
+                    <a href="${pageContext.servletContext.contextPath}/buku/delete?kodeBuku=${sebuahBuku.id}">Hapus</a>
+                </td>
                 </tr>
                 </c:forEach>
                 
