@@ -8,6 +8,7 @@ package com.devimayang27.perpus.dao;
 import com.devimayang27.perpus.config.KoneksiDatabase;
 import com.devimayang27.perpus.model.Buku;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 
@@ -42,8 +43,31 @@ public class BukuDao {
         
     }
     
-    public List<Buku> findAll(){
-        return null;
+    public List<Buku> findAll() throws SQLException{
+        List<Buku> listBuku = new ArrayList<>();
+        
+        KoneksiDatabase koneksiDatabase = new KoneksiDatabase();
+        DataSource dataSource = new KoneksiDatabase().getDataSource();
+        Connection connection = dataSource.getConnection();
+        
+        String sql ="select id, judul_buku, tahun_terbit, pengarang, jumlah_buku from perpus.buku";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while(resultSet.next()){
+            Buku buku = new Buku();
+            buku.setId(resultSet.getInt("id"));
+            buku.setJudulBuku(resultSet.getString("judul_buku"));
+            buku.setPengarang(resultSet.getString("pengarang"));
+            buku.setTahunTerbit(resultSet.getInt("tahun_terbit"));
+            buku.setJumlahBuku(resultSet.getInt("jumlah_buku"));
+            
+            listBuku.add(buku);
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
+        
+        return listBuku;
     }
     
     public Buku findById (Integer idBuku){
