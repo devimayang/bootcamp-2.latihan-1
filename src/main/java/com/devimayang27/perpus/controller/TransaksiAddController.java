@@ -51,10 +51,8 @@ public class TransaksiAddController extends HttpServlet {
     
        Transaksi transaksi = new Transaksi();
         try {
-            
              Integer bukuId= Integer.valueOf(req.getParameter("bukuId"));
-             transaksi.setBuku(new BukuDao().findById(bukuId));
-            
+             transaksi.setBuku(new BukuDao().findById(bukuId));          
              
              Integer pengunjungId= Integer.valueOf(req.getParameter("pengunjungId"));
              transaksi.setPengunjung(new PengunjungDao().findById(pengunjungId));
@@ -66,9 +64,7 @@ public class TransaksiAddController extends HttpServlet {
             Logger.getLogger(TransaksiAddController.class.getName()).log(Level.SEVERE, null, ex);
         }
        
-       
-       
-    }
- 
+             
+    } 
     
 }

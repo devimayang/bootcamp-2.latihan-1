@@ -6,13 +6,17 @@
 package com.devimayang27.perpus.model;
 
 import java.sql.Date;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author Devi
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Transaksi {
     private Integer id;
     private Buku buku;

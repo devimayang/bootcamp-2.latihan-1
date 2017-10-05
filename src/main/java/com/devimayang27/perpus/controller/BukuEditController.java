@@ -56,6 +56,7 @@ public class BukuEditController extends HttpServlet{
         } catch (SQLException ex) {
             Logger.getLogger(BukuAddController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //cara redirect ada 2:
         //resp.sendRedirect(req.getServletContext().getContextPath()+"/buku/");
         resp.sendRedirect(new StringBuilder(req.getServletContext().getContextPath()).append("/buku/").toString());
     }
